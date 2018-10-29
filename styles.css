@@ -28,16 +28,9 @@ main {
     position: fixed;
     top: 43px;
     left: 0;
-
-    /*background-color: grey;
-    transition: opacity 1s;*/
+    opacity: 1.0;
+    transition: opacity 1s;
 }
-
-/*
-main .faded {
-    opacity: 0.0;
-    transition: opacity 2s;
-} */
 
 footer {
     height: var(--footer-height);
@@ -185,6 +178,13 @@ footer img {
 
 #footerLeft {
     margin-left: 5px;
+}
+
+/* ===== Transition ===== */
+
+.faded {
+    opacity: 0.0;
+    transition: opacity 2s;
 }
 
 /* ===== Kachelansicht ===== */
