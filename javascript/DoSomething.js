@@ -1,10 +1,24 @@
 function initialiseView() {
 
-    // === Toggle Views and Transitions ===
-
     var toggle = document.getElementById("toggleView");
     var body = document.body;
     var main = document.querySelector("main");
+    var ul = document.getElementsByTagName("UL")[0];
+    const add = document.querySelector("header .add");
+    const liTemplate = document.querySelector("main ul template");
+
+
+    xhr("GET", "data/listitems.json", null, (xhrobj) => {
+        //alert("request successfully finished: " + xhrobj.status + "content: " + xhrobj.responseText);
+        var listitems = JSON.parse(xhrobj.responseText);
+        console.log("got objects: ", listitems);
+
+        listitems.forEach(obj => {
+            addNewLi(obj);
+        })
+    });
+
+    // === Toggle Views and Transitions ===
 
     toggle.onclick = () => {
         main.classList.toggle("faded");
@@ -23,18 +37,17 @@ function initialiseView() {
 
     }
 
+
     // === Auswahl Listenelement ===
 
-    var ul = document.getElementsByTagName("UL")[0];
-
-    function lookUpLi(el){
-        if (el.tagName === "LI"){
+    function lookUpLi(el) {
+        if (el.tagName === "LI") {
             console.log("LI");
             return el;
-        } else if (el.className === "option") {
+        } else if (el.className === ".option") {
             console.log("option");
             return el;
-        } else if (el.tagName === "UL"){
+        } else if (el.tagName === "UL") {
             console.error("lookUpLi(): reached list root");
             return null;
         } else if (el.parentNode) {
@@ -48,21 +61,34 @@ function initialiseView() {
     ul.onclick = (evt) => {
         var selectedLI = lookUpLi(evt.target);
         alert("selected: " + getListitemName(selectedLI));
-        //;
+        //if (confirm("do you want to delete this element?")) {
+        //    selectedLI.parentNode.removeChild(selectedLI);
+        //}
     };
 
     function getListitemName(li) {
         return li.querySelector("h2").textContent;
     }
 
+
     // === Listenelement hinzufuegen ===
 
-    const add = document.querySelector("header .add");
     add.onclick = () => {
-        addNewLi({title: "Title", src: "img/300_100.jpeg"})
+        var obj = {name: "direm", src: "content/300_100.jpeg"};
+
+        addNewLi(obj);
     };
 
     function addNewLi(obj) {
-        alert("addNewLi(): " + JSON.stringify(obj));
+        const liwrapper = document.importNode(liTemplate.content, true); // true = deep import -> alle ChhildNodes
+
+        const newLi = liwrapper.querySelector("li");
+        newLi.querySelector(".picture").src = obj.src;
+        newLi.querySelector(".title").textContent = obj.name;
+
+        ul.appendChild(newLi);
     }
+
+    // Listenelement entfernen
+
 }

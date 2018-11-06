@@ -189,6 +189,15 @@ footer img {
     width: 100%;
 }
 
+.tiles li .info {
+    position: absolute;
+    width: 95px;
+    height: 95px;
+    color: lightgrey;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .tiles li .infoTop,
 .tiles li .infoTop  div,
 .tiles li .infoTop  span,
@@ -222,14 +231,9 @@ footer img {
     object-fit: cover;
 }
 
-.tiles li > .info {
-    color: lightgrey;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .tiles li > .pic {
     padding: 0;
+    position: absolute;
 }
 
 .tiles .info .infoFoot {
@@ -237,10 +241,10 @@ footer img {
     padding: 0;
 }
 
-.tiles .info .infoFoot img {
+.tiles .option {
     position: absolute;
-    padding-left: 82px;
-    padding-top: 75px;
+    left: 82px;
+    top: 75px;
 }
 
 .tiles #toggleView {

@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link href="styles.css" rel="stylesheet">
     <title>IAM - EA1</title>
-    <script type="application/javascript" src="DoSomething.js"></script>
+    <script type="application/javascript" src="javascript/DoSomething.js"></script>
+    <script type="application/javascript" src="javascript/xhr.js"></script>
 </head>
 
 <body onload = "initialiseView()" class="">
@@ -27,7 +28,7 @@
 <main class="">
     <div id="content">
         <div id="puffer"></div>
-        <ul>
+        <ul><template>
             <li>
                 <div class="floatLeft pic">
                     <img class="picture" src="content/100_100.jpeg">
@@ -48,49 +49,7 @@
                         <img class="option" src="images/optionVertical_GI.png">
                     </div>
                 </div>
-            </li>
-            <li>
-                <div class="floatLeft pic">
-                    <img class="picture" src="content/100_200.jpeg">
-                </div>
-                <div class="info">
-                    <div class="flex infoTop">
-                        <div class="">lorempixel.com</div>
-                        <span></span>
-                        <div>03.10.2018</div>
-                    </div>
-                    <h2 class="title">Title 2</h2>
-                    <div class="infoFoot flex">
-                        <div class="flex">
-                            <img src="images/play_GI.png" class="floatLeft">
-                            <div class="tag">0</div>
-                        </div>
-                        <span></span>
-                        <img class="option" src="images/optionVertical_GI.png">
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="floatLeft pic">
-                    <img class="picture" src="content/300_100.jpeg">
-                </div>
-                <div class="info">
-                    <div class="flex infoTop">
-                        <div class="">lorempixel.com</div>
-                        <span></span>
-                        <div>03.10.2018</div>
-                    </div>
-                    <h2 class="title">Title 3</h2>
-                    <div class="infoFoot flex">
-                        <div class=" floatLeft flex">
-                            <img src="images/play_GI.png" class="floatLeft">
-                            <div class="tag">0</div>
-                        </div>
-                        <span></span>
-                        <img class="option" src="images/optionVertical_GI.png">
-                    </div>
-                </div>
-            </li>
+            </li></template>
         </ul>
     </div>
 
